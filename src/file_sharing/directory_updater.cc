@@ -239,8 +239,8 @@ void LocalDirectoryUpdater::recursUpdateSharedDir(
 	 * make sure list of subfiles is the same
 	 * request all hashes to the hashcache */
 
-	// disallow symbolic links and files from the future.
-	librs::util::FolderIterator dirIt(cumulated_path, mFollowSymLinks, false);
+	// disallow symbolic links, but allow files from the future
+	librs::util::FolderIterator dirIt(cumulated_path, mFollowSymLinks, true);
 
 	rstime_t dir_local_mod_time;
 	if(!mSharedDirectories->getDirectoryLocalModTime(indx,dir_local_mod_time))
